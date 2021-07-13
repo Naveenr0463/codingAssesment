@@ -13,7 +13,7 @@ export default (props: { data: Plotly.Data[] }) => {
   const classes = useStyles();
   const { data } = props;
 
-
+  
   const tempPresent = data.filter(node => node.yaxis === 'y').length > 1;
 
   if (data.length > 1) {
@@ -48,7 +48,16 @@ export default (props: { data: Plotly.Data[] }) => {
             tickcolor: '#b8b8b8',
             fixedrange: true,
           },
-
+          yaxis3: {
+            title: 'injection valve opening (%)',
+            overlaying: 'y',
+            side: 'right',
+            showline: true,
+            zeroline: false,
+            ticks: 'outside',
+            fixedrange: true,
+          },
+          legend: { orientation: 'h', y: 1.2 },
         }}
         config={{
           displayModeBar: false,

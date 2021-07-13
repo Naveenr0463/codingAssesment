@@ -25,7 +25,9 @@ export default (props: {
         <Grid item xs={12} sm={6}>
           {/*render a tag displaying latest data for each selected metric*/}
           {latestData.map(measurement => {
-
+            return selection.includes(measurement.metric) ? (
+              <DataTag key={`${measurement.metric}: ${measurement.value}`} measurement={measurement} />
+            ) : null;
           })}
         </Grid>
         <Grid item xs={12} sm={6}>

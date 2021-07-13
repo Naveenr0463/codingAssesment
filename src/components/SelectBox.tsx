@@ -58,13 +58,17 @@ export default (props: { metrics: string[]; selection: (string | undefined)[]; s
         input={<Input />}
         renderValue={selected => (
           <div className={classes.chips}>
-
+            {(selected as (string | undefined)[]).map(value => (
+              <Chip key={value} label={value} className={classes.chip} />
+            ))}
           </div>
         )}
         MenuProps={MenuProps}
       >
         {metrics.map(metric => (
-          
+          <MenuItem key={metric} value={metric} style={getStyles(metric, selection, theme)}>
+            {metric}
+          </MenuItem>
         ))}
       </Select>
     </FormControl>
