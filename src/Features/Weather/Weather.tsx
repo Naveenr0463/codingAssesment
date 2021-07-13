@@ -45,7 +45,8 @@ const Weather = () => {
     latitude: getLocation.latitude || 29.7604,
     longitude: getLocation.longitude || -95.3698,
   };
-
+  const dispatch = useDispatch();
+  const { temperatureinFahrenheit, description, locationName } = useSelector(getWeather);
 
   const [result] = useQuery({
     query,
